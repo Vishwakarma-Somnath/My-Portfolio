@@ -412,8 +412,28 @@
         <div class="contactSkills">
             <div class="contact-info">
                 <div class="main-text">
+			<head>
                     <h2 class="heading">Contact Me</h2>
-                    <span>get in touch with me</span>
+	<!-- Include SweetAlert2 for alerts (if not already included) -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Include smtp.js library (if you use smtpjs.com or similar) -->
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<!-- Your own styles and other scripts -->
+</head>
+<body>
+	<form>
+		<input type="text" id="name" class="items" placeholder="Full Name" required>
+		<input type="email" id="email" class="items" placeholder="Email" required>
+		<input type="tel" id="phone" class="items" placeholder="Phone Number" required>
+		<input type="text" id="subject" class="items" placeholder="Subject" required>
+		<textarea id="message" class="items" placeholder="Message" required></textarea>
+		<button type="submit">Send</button>
+	</form>
+	
+	<!-- Link your smtp.js file here (must be after the form and after smtp.js library) -->
+	<script src="smtp.js"></script>
+</body>
+			<span>get in touch with me</span>
                 </div>
                 <form action="#">
                     <div class="input-box">
@@ -552,3 +572,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
