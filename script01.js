@@ -22,7 +22,7 @@ function sendMail(event){
         message: message,
     };
 
-    emailjs.send("service_ggu2apc", "template_24ngvhs", params)
+    emailjs.send("service_ggu2apc", "template_sp3cetg", params)
         .then(() => alert("Email Sent!!"))
         .catch((error) => {
             alert("Failed to send email: " + error.message);
