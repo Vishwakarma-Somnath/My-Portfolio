@@ -1,11 +1,28 @@
-function sendMail(){
-    let params = {
-        from_name: document.getElementById("name").value,
-        from_email: document.getElementById("email").value,
-        message: document.getElementById("message").value,
+function sendMail(event){
+    event.preventDefault();
+
+    // Get values from form fields
+    const firstName = document.querySelector('input[name="firstName"]').value.trim();
+    const lastName = document.querySelector('input[name="lastName"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const subject = document.querySelector('input[name="subject"]') ? document.querySelector('input[name="subject"]').value.trim() : '';
+    const message = document.getElementById("message") ? document.getElementById("message").value.trim() : '';
+
+    // Simple validation
+    if (!firstName || !lastName || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
     }
 
-    emailjs.send("service_1hlqevp","template_24ngvhs",params)
+    // Prepare params for EmailJS
+    let params = {
+        from_name: `${firstName} ${lastName}`,
+        from_email: email,
+        subject: subject,
+        message: message,
+    };
+
+    emailjs.send("service_1hlqevp", "template_24ngvhs", params)
         .then(() => alert("Email Sent!!"))
         .catch((error) => {
             alert("Failed to send email: " + error.message);
