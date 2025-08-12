@@ -1,6 +1,6 @@
 function sendMail(event){
     event.preventDefault();
-    
+
     // Get values from form fields
     const firstName = document.querySelector('input[name="firstName"]').value.trim();
     const lastName = document.querySelector('input[name="lastName"]').value.trim();
