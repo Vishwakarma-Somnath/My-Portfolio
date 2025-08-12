@@ -1,16 +1,6 @@
 function sendMail(event){
     event.preventDefault();
-
-    const form = event.target;
-    const sendBtn = document.getElementById("sendBtn");
-    const btnText = document.getElementById("btnText");
-    const spinner = document.getElementById("spinner");
-
-    // Show loading spinner
-    btnText.textContent = "Sending...";
-    spinner.classList.remove("hidden");
-    sendBtn.disabled = true;
-
+    
     // Get values from form fields
     const firstName = document.querySelector('input[name="firstName"]').value.trim();
     const lastName = document.querySelector('input[name="lastName"]').value.trim();
