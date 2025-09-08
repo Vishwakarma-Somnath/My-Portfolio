@@ -9,7 +9,7 @@
 }
 
 :root{
-    --bg-color:#e3edf7;
+    --bg-color:#1be6c4;
     --gradient-white-bg:linear-gradient(0deg,#fff 0%,#edf4fa 51%,#e5eef7 100%);
     --gradient-color-bg:linear-gradient(180deg,rgba(247,1,120,1)0%,
                                                 rgba(160,8,156,1)51%,
