@@ -110,7 +110,7 @@ ul.navlist{
 .menu-icon::before{
     content: "";
     display: none;
-    width: 80%;
+    width: 100%;
     height: 4px;
     border-radius: 3px;
     background: #000;
@@ -1046,7 +1046,7 @@ footer{
 
 /*======================= BrakPoints ============================ */
 
-@media(max-width:1200px){
+@media(max-width:1000px){
     html{
         font-size: 95%;
     }
