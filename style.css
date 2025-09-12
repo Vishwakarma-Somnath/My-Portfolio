@@ -138,8 +138,8 @@ section{
 
 .home{
     min-height: 100vh;
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     display: flex;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
@@ -148,7 +148,7 @@ section{
 }
 
 .hero-info{
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .hero-info h3{
