@@ -143,7 +143,7 @@ section{
     display: flex;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
-    grid-gap: 4em;
+    grid-gap: 4rem;
     background: var(--gradient-white-bg2);
 }
 
@@ -233,7 +233,7 @@ section{
     display: flex;
     justify-content: space-between;
     width: 220px;
-    height: 75px;
+    height: 45px;
 }
 
 .social-media a{
