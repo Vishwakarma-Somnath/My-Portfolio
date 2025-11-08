@@ -786,14 +786,14 @@ section{
 }
 
 .blog .showcase .half-ring{
-    top: 10%;
+    top: 40%;
     right: 10%;
     width: 90px;
     height: 90px;
 }
 
 .blog .showcase .second-circle{
-    top: 30%;
+    top: 40%;
     left: 2%;
     filter: blur(1px);
     width: 50px;
