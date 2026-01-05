@@ -14,7 +14,18 @@ navlist.addEventListener("click",()=>{
     document.body.classList.remove("open");
 })
 
-
+<script>
+async function updateVisitorCount() {
+  try {
+    const res = await fetch('https://api.countapi.xyz/hit/my-portfolio-site/visits');
+    const data = await res.json();
+    document.getElementById('count').textContent = data.value;
+  } catch (err) {
+    console.error('Visitor count error', err);
+  }
+}
+window.addEventListener('load', updateVisitorCount);
+</script>
 
 // rotate text js code 
 let text = document.querySelector(".text p");
