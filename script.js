@@ -1,18 +1,23 @@
 // active hamburger menu 
+console.log('script.js loaded');
 let menuIcon = document.querySelector(".menu-icon");
-let navlist = document.querySelector(".navlist")
-menuIcon.addEventListener("click",()=>{
-    menuIcon.classList.toggle("active");
-    navlist.classList.toggle("active");
-    document.body.classList.toggle("open");
-});
+let navlist = document.querySelector(".navlist");
+if (menuIcon && navlist) {
+    menuIcon.addEventListener("click", () => {
+        menuIcon.classList.toggle("active");
+        navlist.classList.toggle("active");
+        document.body.classList.toggle("open");
+    });
 
-// remove navlist
-navlist.addEventListener("click",()=>{
-    navlist.classList.remove("active");
-    menuIcon.classList.remove("active");
-    document.body.classList.remove("open");
-})
+    // remove navlist
+    navlist.addEventListener("click", () => {
+        navlist.classList.remove("active");
+        menuIcon.classList.remove("active");
+        document.body.classList.remove("open");
+    });
+} else {
+    console.warn('menuIcon or navlist not found', { menuIcon, navlist });
+}
 
 async function updateVisitorCount() {
     try {
@@ -44,10 +49,13 @@ window.addEventListener('load', updateVisitorCount);
 
 // rotate text js code 
 let text = document.querySelector(".text p");
-
-text.innerHTML = text.innerHTML.split("").map((char,i)=>
-    `<b style="transform:rotate(${i * 6.3}deg")>${char}</b>`
-).join("");
+if (text) {
+    text.innerHTML = text.innerHTML.split("").map((char, i) =>
+        `<b style="transform:rotate(${i * 6.3}deg)">${char}</b>`
+    ).join("");
+} else {
+    console.warn('.text p element not found');
+}
 
 
 // switch between about buttons 
@@ -119,8 +127,9 @@ window.addEventListener("scroll",()=>{
 
 
 function hasReached(el){
+    if (!el) return false;
     let topPosition = el.getBoundingClientRect().top;
-    if(window.innerHeight >= topPosition + el.offsetHeight)return true;
+    if(window.innerHeight >= topPosition + el.offsetHeight) return true;
     return false;
 }
 
