@@ -9,23 +9,26 @@ menuIcon.addEventListener("click",()=>{
 
 // remove navlist
 navlist.addEventListener("click",()=>{
-    navlist.classList.remove("active");
-    menuIcon.classList.remove("active");
-    document.body.classList.remove("open");
+        navlist.classList.remove("active");
+        menuIcon.classList.remove("active");
+        document.body.classList.remove("open");
 })
 
-<script>
+// visitor count (uses CountAPI)
 async function updateVisitorCount() {
-  try {
-    const res = await fetch('https://api.countapi.xyz/hit/my-portfolio-site/visits');
-    const data = await res.json();
-    document.getElementById('count').textContent = data.value;
-  } catch (err) {
-    console.error('Visitor count error', err);
-  }
+    try {
+        const res = await fetch('https://api.countapi.xyz/hit/my-portfolio-site/visits');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const countEl = document.getElementById('count');
+        if (countEl && data && typeof data.value !== 'undefined') {
+            countEl.textContent = data.value;
+        }
+    } catch (err) {
+        console.error('Visitor count error', err);
+    }
 }
 window.addEventListener('load', updateVisitorCount);
-</script>
 
 // rotate text js code 
 let text = document.querySelector(".text p");
