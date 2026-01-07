@@ -1,61 +1,27 @@
 // active hamburger menu 
-console.log('script.js loaded');
 let menuIcon = document.querySelector(".menu-icon");
-let navlist = document.querySelector(".navlist");
-if (menuIcon && navlist) {
-    menuIcon.addEventListener("click", () => {
-        menuIcon.classList.toggle("active");
-        navlist.classList.toggle("active");
-        document.body.classList.toggle("open");
-    });
+let navlist = document.querySelector(".navlist")
+menuIcon.addEventListener("click",()=>{
+    menuIcon.classList.toggle("active");
+    navlist.classList.toggle("active");
+    document.body.classList.toggle("open");
+});
 
-    // remove navlist
-    navlist.addEventListener("click", () => {
-        navlist.classList.remove("active");
-        menuIcon.classList.remove("active");
-        document.body.classList.remove("open");
-    });
-} else {
-    console.warn('menuIcon or navlist not found', { menuIcon, navlist });
-}
+// remove navlist
+navlist.addEventListener("click",()=>{
+    navlist.classList.remove("active");
+    menuIcon.classList.remove("active");
+    document.body.classList.remove("open");
+})
 
-async function updateVisitorCount() {
-    try {
-        const ns = 'my-portfolio-site';
-        const rawKey = location.pathname === '/' ? 'home' : location.pathname;
-        const key = encodeURIComponent(rawKey.replace(/^\//, '').replace(/\//g, '-'));
-        const storageKey = `visit_${ns}_${key}`;
-        const last = localStorage.getItem(storageKey);
-        const now = Date.now();
-        const oneDay = 24 * 60 * 60 * 1000;
-        let data;
 
-        if (!last || now - parseInt(last, 10) > oneDay) {
-            const res = await fetch(`https://api.countapi.xyz/hit/${ns}/${key}`);
-            data = await res.json();
-            localStorage.setItem(storageKey, now.toString());
-        } else {
-            const res = await fetch(`https://api.countapi.xyz/get/${ns}/${key}`);
-            data = await res.json();
-        }
-
-        const el = document.getElementById('count');
-        if (el && data && typeof data.value !== 'undefined') el.textContent = data.value;
-    } catch (err) {
-        console.error('Visitor count error', err);
-    }
-}
-window.addEventListener('load', updateVisitorCount);
 
 // rotate text js code 
 let text = document.querySelector(".text p");
-if (text) {
-    text.innerHTML = text.innerHTML.split("").map((char, i) =>
-        `<b style="transform:rotate(${i * 6.3}deg)">${char}</b>`
-    ).join("");
-} else {
-    console.warn('.text p element not found');
-}
+
+text.innerHTML = text.innerHTML.split("").map((char,i)=>
+    `<b style="transform:rotate(${i * 6.3}deg")>${char}</b>`
+).join("");
 
 
 // switch between about buttons 
@@ -127,9 +93,8 @@ window.addEventListener("scroll",()=>{
 
 
 function hasReached(el){
-    if (!el) return false;
     let topPosition = el.getBoundingClientRect().top;
-    if(window.innerHeight >= topPosition + el.offsetHeight) return true;
+    if(window.innerHeight >= topPosition + el.offsetHeight)return true;
     return false;
 }
 
